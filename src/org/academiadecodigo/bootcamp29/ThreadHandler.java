@@ -48,6 +48,10 @@ public class ThreadHandler implements Runnable {
 
         userRequest = request.split(" ")[1];
 
+        if (userRequest.length()<=1){
+            return;
+        }
+
 
 
         switch (userRequest) {
