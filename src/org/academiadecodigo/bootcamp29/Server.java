@@ -22,7 +22,8 @@ public class Server {
             ServerSocket serverSocket = new ServerSocket(portNumber);
             while (true) {
                 Socket clientSocket = serverSocket.accept();
-                ThreadHandler threadHandler = new ThreadHandler(clientSocket);
+                new ThreadHandler(clientSocket);
+
             }
         } catch (IOException e) {
             e.printStackTrace();

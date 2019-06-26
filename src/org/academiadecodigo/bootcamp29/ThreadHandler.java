@@ -9,6 +9,7 @@ public class ThreadHandler implements Runnable {
 
     public ThreadHandler(Socket clientSocket) {
         this.clientSocket = clientSocket;
+        this.run();
     }
 
     @Override
@@ -41,7 +42,13 @@ public class ThreadHandler implements Runnable {
 
         String userRequest;
 
+        if (request ==null){
+            return;
+        }
+
         userRequest = request.split(" ")[1];
+
+
 
         switch (userRequest) {
 
