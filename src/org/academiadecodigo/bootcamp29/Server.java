@@ -23,7 +23,7 @@ public class Server {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 new ThreadHandler(clientSocket);
-
+                System.out.println(Thread.activeCount());
             }
         } catch (IOException e) {
             e.printStackTrace();
