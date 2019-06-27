@@ -12,6 +12,7 @@ public class ThreadHandler implements Runnable {
         this.run();
     }
 
+
     @Override
     public void run() {
 
@@ -31,6 +32,7 @@ public class ThreadHandler implements Runnable {
 
             this.processRequest(request);
 
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,16 +44,16 @@ public class ThreadHandler implements Runnable {
 
         String userRequest;
 
-        if (request ==null){
+        if (request == null){
+            return;
+        }
+
+
+        if (request.split(" ").length<=1){
             return;
         }
 
         userRequest = request.split(" ")[1];
-
-        if (userRequest.length()<=1){
-            return;
-        }
-
 
 
         switch (userRequest) {
@@ -76,7 +78,7 @@ public class ThreadHandler implements Runnable {
 
                 this.sendFile(inputStream, outputStream);
 
-                out.close();
+
 
                 break;
 
@@ -97,7 +99,7 @@ public class ThreadHandler implements Runnable {
 
                 this.sendFile(inputStream, outputStream);
 
-                out.close();
+
 
                 break;
 
@@ -107,8 +109,6 @@ public class ThreadHandler implements Runnable {
                 out.println("HTTP/1.1 404 Not Found\r\n"
                         + "Content-Type: image/jpg; charset=UTF-8\r\n"
                         + "Content-Length:0\r\n");
-
-                out.close();
 
                 break;
         }
@@ -124,9 +124,6 @@ public class ThreadHandler implements Runnable {
             outputStream.write(buffer);
 
         }
-
-        outputStream.close();
-        inputStream.close();
     }
 }
 
