@@ -15,7 +15,7 @@ public class Server {
         server.start();
 
     }
-
+// this server is WIP and has a couple of issues, namelly it's html request reader isn't on point
     private void start() {
 
         int portNumber = 5005;
